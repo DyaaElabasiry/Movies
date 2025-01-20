@@ -6,6 +6,10 @@ var sub_btn = document.getElementById("register");
 var alert_name = document.getElementsByClassName("alert");
 var checkb = document.querySelector('input[type = "checkbox"]')
 var valid = [false,false,false,false];
+
+const xhr = new XMLHttpRequest();
+
+
 function check() {
     if (checkb.checked && valid[0] && valid[1] && valid[2] && valid[3]) {
         sub_btn.removeAttribute("disabled");
@@ -88,13 +92,33 @@ email.addEventListener("input", function () {
     
     } else {
         // hide the alert if all conditions are satisfied
-        alert_name[2].classList.add("hidden");
-        valid[2] = true;
-        sub_btn.setAttribute("disabled" , "false");
-        check();
+      
+        xhr.open('GET', 'http://localhost:3000/users');
+        // xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send();
+
+        // check whether the mail exist before or not
+        xhr.addEventListener('readystatechange', function () {
+            if (xhr.readyState == 4) { 
+                response = JSON.parse(xhr.response);
+
+                if(response.some(user => user.email == email.value)){
+                    alert_name[2].innerText = "Email already exists";
+                    alert_name[2].classList.remove("hidden");
+                    sub_btn.setAttribute("disabled" , "true");
+                    valid[2] = false;}
+                    else{
+                        alert_name[2].classList.add("hidden");
+                        valid[2] = true;
+                        sub_btn.setAttribute("disabled" , "false");
+                        check();
+                    }
+            }
+          });
+        
 
     }
-    })
+    });
 
     password.addEventListener("input", function () {
         //  logic to check the username length to be more than 1 char
@@ -130,12 +154,27 @@ email.addEventListener("input", function () {
     )
 
     sub_btn.addEventListener("click" , function(){
+        full_name = username.value + " " + secondname.value;
 
-        localStorage.setItem('username' , username.value+ " " + secondname.value)
+        var user = {
+            
+            name : full_name,
+            password : password.value,
+            email : email.value
+        };
 
-        localStorage.setItem('email' , email.value)
-        localStorage.setItem('password' , password.value)
+        // Configure the request
+        xhr.open('POST', 'http://localhost:3000/users');
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify(user));
 
+        xhr.addEventListener('readystatechange', function () {
+            if (xhr.readyState == 4) { 
+               
+              
+            }
+          });
+        
 
     })
     

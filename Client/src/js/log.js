@@ -4,6 +4,18 @@ var email = document.getElementById("email");
 var alert_name = document.getElementsByClassName("alert");
 var sub_btn= document.getElementById("login");
 var valid =  [false , false , false]
+
+var par0 = document.querySelectorAll('p')[0];
+var par1 = document.querySelectorAll('p')[1];
+
+
+var xhr = new XMLHttpRequest();
+/**
+ * Checks the validity of the form fields and enables or disables
+ * the submit button accordingly. If all fields are valid, the button
+ * is enabled; otherwise, it is disabled.
+ */
+
 function check() {
     if (valid[0] && valid[1] && valid[2]) {
         sub_btn.removeAttribute("disabled");
@@ -77,16 +89,32 @@ username.addEventListener("input", function () {
 
     sub_btn.addEventListener("click" , function(e){
         e.preventDefault()
-       if(email.value !=  localStorage.getItem('email')){ //1st time 
-        var par = document.querySelectorAll('p')[0];
-        par.classList.add("animate-vibrate")
-
-       }else if(password.value != localStorage.getItem('password')){
-
-        var par = document.querySelectorAll('p')[1];
-        par.classList.remove("hidden");
-       }//right mail , but wrong password
 
 
+        xhr.open('GET', 'http://localhost:3000/users');
+        xhr.send();
 
-    })
+        xhr.addEventListener('readystatechange', function () {
+            par0.classList.remove("animate-vibrate");
+            if (xhr.readyState == 4) { 
+
+                response = JSON.parse(xhr.response);
+                var user = response.find(user => user.email == email.value); //return object of the first appearence
+                if(user){       // if the user has signed up
+
+                    if(user.password != password.value){        // check if the password is wrong
+                        par1.classList.remove("hidden");
+                        
+                    }
+                }
+                
+                else{          // the user hasn't signed up 
+                    par0.classList.add("animate-vibrate")
+
+                    }   
+                
+        }
+        });
+
+
+    });
