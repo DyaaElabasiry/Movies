@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Registration </title>
+    <link rel="stylesheet" href="../output.css">
+</head>
+<body>
+    
+    <section class="flex flex-col items-center bg-slate-800 pt-4 min-h-screen">
+
+        <div class=" animate-fade-in-form flex flex-row lg:flex-row w-full max-w-4xl bg-white rounded-lg shadow-lg overflow-hidden my-5 ">
+            <div class="w-1/2 lg:w-3/5">
+            <img 
+                src="pexels-photo-1624496.jpeg" 
+                alt="Photo" 
+                class="w-full h-full object-cover"/>
+        </div>
+
+        <div class="w-full max-w bg-white rounded-lg shadow-lg p-12"> 
+            <h2 class="block text-4xl font-medium text-slate-950 mb-8"> Registration </h2>
+            <form class="space-y-6">
+            
+                <div>
+                    <input
+                        id="username"
+                        type="text"
+                        placeholder="Please Enter Your First Name"
+                        class="mt-1 w-full text-slate-900 rounded-lg bg-slate-100 border border-slate-300 py-3 px-4 text-lg placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-transparent"/>
+                </div>
+                <!--  the next div to alert the user  -->
+                <div  class="alert  text-red-700 rounded-lg pl-1 hidden"> </div>
+
+                <div>
+                    <input
+                        id="Secondname"
+                        type="text"
+                        placeholder="Please Enter Your Second Name"
+                        class="mt-1 w-full text-slate-900 rounded-lg bg-slate-100 border border-slate-300 py-3 px-4 text-lg placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-transparent"/>
+                </div>
+                 <!--  the next div to alert the user  -->
+                 <div  class= "alert  text-red-700 rounded-lg pl-1 hidden"> </div>
+
+    
+                <div>
+                    <input
+                        id="email"
+                        type="email"
+                        placeholder="Please Enter Your Email"
+                        class="mt-1 w-full text-slate-900 rounded-lg bg-slate-100 border border-slate-300 py-3 px-4 text-lg placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-transparent"/>
+                </div>
+                 <!--  the next div to alert the user  -->
+                 <div  class="alert  text-red-700 rounded-lg pl-1 hidden"></div>
+                <div>
+                    <input
+                        id="password"
+                        type="password"
+                        placeholder="Please Enter Your Password"
+                        class="mt-1 w-full text-slate-900 rounded-lg bg-slate-100 border border-slate-300 py-3 px-4 text-lg placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-transparent"/>
+                </div>
+                 <!--  the next div to alert the user  -->
+                 <div  class="alert  text-red-700 rounded-lg pl-1 hidden"> </div>
+                <div>
+                    <label class="flex items-center">
+                      <input type="checkbox" id="terms" class="text-slate-600 focus:ring-slate-500" required />
+                      <span class="ml-2 text-slate-700">I agree to the <a href="#" class="text-slate-800 underline">terms and conditions</a>.</span>
+                    </label>
+                    <p class="text-red-500 text-sm hidden" id="termsError">You must agree to the terms and conditions.</p>
+                  </div>
+
+                <div>
+                    <button
+                        id="register"
+                        type="submit" 
+                        disabled
+                        class="w-full bg-slate-800 disabled:cursor-not-allowed text-white py-3 px-6 rounded-lg text-lg font-semibold disabled:bg-slate-200 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2">
+                        Register
+                    </button>
+                </div>
+
+                <p class="text-center text-slate-600">
+                    Already registered? <a href="/login.html" class="text-slate-800 underline">Back to Login</a>.
+                </p>
+            </form>
+        </div>
+
+    </div>
+    </section>
+
+</body>
+<script src="s.js"></script>
+</html>
