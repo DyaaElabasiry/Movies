@@ -2,12 +2,27 @@ var xhr = new XMLHttpRequest()
 var image = document.getElementById('poster')
 var container = document.getElementById('poster-container')
 var addToFavourites = document.getElementById('add-to-favourites')
-
+var userId;
+var movieId;
 window.onload = function() {
+  userId = localStorage.getItem('userId');
   const params = new URLSearchParams(window.location.search);
-  const id = params.get('movieId');
+  movieId = params.get('movieId');
 
-  xhr.open('GET', `https://api.themoviedb.org/3/movie/${id}?api_key=d10b21c479b4bc082f3fab5d7cc62326`, true)
+  var checkMovieRequest = new XMLHttpRequest();
+  checkMovieRequest.open('GET', `http://localhost:3000/users/${userId}`,true);
+  checkMovieRequest.setRequestHeader('Content-Type', 'application/json');
+  checkMovieRequest.onload = function(){
+    if(checkMovieRequest.status === 200){
+      var user = JSON.parse(checkMovieRequest.responseText);
+      if(user.favourites.includes(movieId)){
+        addToFavourites.style.color = 'red';
+      }
+    }
+  }
+  checkMovieRequest.send();
+
+  xhr.open('GET', `https://api.themoviedb.org/3/movie/${movieId}?api_key=d10b21c479b4bc082f3fab5d7cc62326`, true)
 
   xhr.send()
   var response;
@@ -42,10 +57,31 @@ function addSpecs(response) {
   })
 }
 
-addToFavourites.addEventListener('click', function() {
+addToFavourites.addEventListener('click', function(event) {
+  event.preventDefault();
   if(this.style.color==='red') {
     this.style.color = 'white'
   }else{
     this.style.color = 'red'
   }
+  addFavs();
 })
+//addFavs(121);
+function addFavs(){
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', `http://localhost:3000/users/${userId}`,true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send();
+  xhr.onload = function(){
+    if(xhr.status === 200){
+      var user = JSON.parse(xhr.responseText);
+      user.favourites.push(movieId);
+      var xhr2 = new XMLHttpRequest();
+      xhr2.open('PUT', `http://localhost:3000/users/${userId}`,true);
+      xhr2.setRequestHeader('Content-Type', 'application/json');
+      xhr2.send(JSON.stringify(user));
+    }
+  }
+  
+  
+}
