@@ -8,7 +8,25 @@
     <title>Register</title>
  
 </head>
-<body class=" bg-gradient-to-l from-cyan-800  to-gray-800 gap-5  flex flex-row items-center min-h-screen sm:flex-col sm:gap-0  ">
+<style>
+@keyframes changeBackground {
+    0% {
+      background-color: #151a3f;
+    }
+    50% {
+      background-color: #4682B4;
+    }
+    100% {
+      background-color: #2e5e99;
+    }
+  }
+
+  /* Custom class for animated background */
+  .bg-animated {
+    animation: changeBackground 5s ease-in-out alternate infinite;
+  }
+</style>
+<body class="bg-animated bg-gradient-to-l from-cyan-800  to-gray-800 gap-5  flex flex-row items-center min-h-screen sm:flex-col sm:gap-0  ">
 
 
     <h1 class=" text-3xl animate-fade-in font-Helvetica rounded-lg text-sky-200 font-extrabold border-b-4 border-red-500 my-6 py-3 sm:text-6xl">Let us Know you! </h1>

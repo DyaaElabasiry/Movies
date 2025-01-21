@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js}"],
+  content: ["./client/public/**/*.html",
+            "./src/js/**/*.js"],
   theme: {
     extend: {
       keyframes: {
@@ -10,16 +11,7 @@ module.exports = {
           '50%': { transform: 'translateX(10px)' },
           '75%': { transform: 'translateX(-10px)' },
         },
-        'fade-in': {
-          from: {
-            opacity: '0',
-            transform: 'translateX(-30px)',
-          },
-          to: {
-            opacity: '1',
-            transform: 'translateX(0)',
-          },
-        },
+        
         'fade-in-form': {
           from: {
             opacity: '0',
@@ -30,14 +22,26 @@ module.exports = {
             transform: 'translateX(0)',
           },
         },
+        'slidegradient': {
+          '0%': { 
+            backgroundPosition : '0% 0%' 
+          },
+          '100%': { 
+            backgroundPosition: '100% 0%'
+          }
+        },
+       
       },
       animation:{
-        'vibrate': 'vibrate 0.9s ease-in-out 1',
-        'fade-in': 'fade-in 2s',
+        'slidegradient': 'slidegradient 2s alternate-reverse infinite',
+        'vibrate': 'vibrate 0.9s ease-in-out 2',
         'fade-in-form' : 'fade-in-form 2s'
-      }
+      },
+      backgroundImage: {
+        'animated-gradient': 'radial-gradient(circle, #070831, #163753, #0a1e6e)',
+      },
     },
   },
   plugins: [],
-}
+};
 
