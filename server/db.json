@@ -11,7 +11,8 @@
       "name": "Bob",
       "email": "bob@example.com",
       "favourites": [
-        "121"
+        "121",
+        "122"
       ]
     }
   ],
