@@ -88,6 +88,22 @@
       "password": "shabh9{}s",
       "email": "shabhas@gmail.com",
       "favourites": []
+    } ,
+    {
+      "id": "d80f",
+      "name": "Bob",
+      "email": "bob@example.com",
+      "favourites": [
+        "121",
+        "122"
+      ]
+    }
+  ],
+  "posts": [
+    {
+      "id": "1",
+      "title": "JSON Server Guide",
+      "content": "Learn how to use JSON Server."
     }
   ]
 }

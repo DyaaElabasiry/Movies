@@ -2,6 +2,7 @@
 module.exports = {
   content: ["./client/public/**/*.html",
             "./src/js/**/*.js"],
+ 
   theme: {
     extend: {
       keyframes: {
