@@ -153,27 +153,24 @@ email.addEventListener("input", function () {
     }
     )
 
-    sub_btn.addEventListener("click" , function(){
+    sub_btn.addEventListener("click" , function(e){
+
+        e.preventDefault();
         full_name = username.value + " " + secondname.value;
 
         var user = {
             
             name : full_name,
             password : password.value,
-            email : email.value
+            email : email.value,
+            favourites: []
         };
 
-        // Configure the request
         xhr.open('POST', 'http://localhost:3000/users');
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.send(JSON.stringify(user));
 
-        xhr.addEventListener('readystatechange', function () {
-            if (xhr.readyState == 4) { 
-               
-              
-            }
-          });
+        window.location.href = "http://127.0.0.1:5500/Client/public/login.html";
         
 
     })
