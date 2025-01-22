@@ -1,2 +1,4 @@
 .idea
 tailwind installation & npm
+node_modules
+.vscode
