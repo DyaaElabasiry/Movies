@@ -101,7 +101,6 @@ username.addEventListener("input", function () {
 
                 response = JSON.parse(xhr.response);
                 var user = response.find(user => user.email == email.value); //return object of the first appearence
-                console.log("test");
                 if(user){       // if the user has signed up
 
                     if(user.password != password.value){        // check if the password is wrong
@@ -109,7 +108,7 @@ username.addEventListener("input", function () {
                                                                 //the password is correct and email is correct
                     }else{
                         
-
+                        localStorage.setItem("userId" , user.id);
                         localStorage.setItem("email" , user.email);
                         localStorage.setItem("name" , user.name);
 
