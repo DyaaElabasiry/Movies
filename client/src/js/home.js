@@ -7,6 +7,7 @@ mobileMenuButton.addEventListener('click', () => {
 });
 
 
+
 // API Configuration
 const Api_Key = 'bf6de15b7b7a3f0005e93bbde1715684';
 const base_Url = 'https://api.themoviedb.org/3';
@@ -123,8 +124,10 @@ function showCombinedResults(data) {
           <span class="text-sm font-bold text-yellow-400">${((item.vote_average || 0) * 10).toFixed(0)}%</span>
         </div>
       </div>
+
       <h6 class="ml-3 text-base sm:text-lg text-white font-semibold mt-2">${isMovie ? item.title : item.name}</h6>
       <p class="ml-3 text-sm sm:text-base text-white opacity-70">${isMovie ? item.release_date : item.first_air_date}</p>
+
     `;
 
     // Append to the appropriate container
@@ -184,12 +187,15 @@ function showMovies(data) {
   moviesContainer.innerHTML = ''; // Clear the container
 
   data.forEach((movie) => {
+
     const { id,title, poster_path, vote_average, release_date } = movie;
+
     const movieElement = document.createElement('div');
     movieElement.classList.add('movie', 'mx-3', 'flex-shrink-0', 'relative', 'hover:brightness-110');
 
     // Use the fallback image if poster_path is not available
     const imageUrl = poster_path ? `${imges_Url}${poster_path}` : fallbackImage;
+
     
     const movieLink = document.createElement('a');
     movieLink.href = `details.html?movieID=${id}`;
@@ -212,6 +218,7 @@ function showMovies(data) {
           <i class="fas fa-heart text-white text-lg transition duration-300 hover:text-red-500" id="icon-${id}"></i>
         </div>
 
+
         <div class="absolute bottom-2 left-2 bg-black bg-opacity-75 rounded-full p-2 flex items-center justify-center">
           <span class="text-sm font-bold text-yellow-400">${(vote_average * 10).toFixed(0)}%</span>
         </div>
@@ -222,6 +229,7 @@ function showMovies(data) {
 
     movieLink.appendChild(movieElement);
     moviesContainer.appendChild(movieLink);
+
   });
 }
 
@@ -251,6 +259,7 @@ function showSeries(data) {
 
     seriesElement.innerHTML = `
       <div class="relative">
+
           <img
     class="w-40 sm:w-56 h-60 sm:h-80 object-cover rounded-2xl shadow-lg opacity-85 hover:opacity-100"
     src="${imageUrl}"
@@ -269,8 +278,10 @@ function showSeries(data) {
           <span class="text-sm font-bold text-yellow-400">${(vote_average * 10).toFixed(0)}%</span>
         </div>
       </div>
-      <h6 class="ml-3 text-base sm:text-lg text-white font-semibold mt-2">${name}</h6>
-      <p class="ml-3 text-sm sm:text-base text-white opacity-70">${first_air_date}</p>
+
+      <h6 class="ml-3 text-base sm:text-lg text-gray-900 font-semibold mt-2">${name}</h6>
+      <p class="ml-3 text-sm sm:text-base text-gray-700">${first_air_date}</p>
+
     `;
 
     seriesContainer.appendChild(seriesElement);
@@ -305,6 +316,7 @@ function showActors(data) {
     const imageUrl = profile_path ? `${imges_Url}${profile_path}` : fallbackImage;
 
     actorElement.innerHTML = `
+
    <div class="relative">
   <img
     class="w-40 sm:w-56 h-60 sm:h-80 object-cover rounded-2xl shadow-lg opacity-85 hover:opacity-100"
@@ -328,6 +340,7 @@ function showActors(data) {
 <h6 class="ml-3 text-base sm:text-lg text-white font-semibold mt-2">${name}</h6>
 
 `;
+
     actorsContainer.appendChild(actorElement);
   });
 }

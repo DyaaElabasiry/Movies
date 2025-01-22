@@ -7,6 +7,7 @@
   <title>Cinema Website</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="text-white bg-black">
   
   <!-- Header Section -->
@@ -19,10 +20,13 @@
   
       <!-- Mobile Menu Button -->
       <button class="sm:hidden text-white focus:outline-none ml-auto" id="mobileMenuButton">
+
+
         <i class="fas fa-bars text-2xl"></i>
       </button>
   
       <!-- Navigation -->
+
       <nav class="hidden sm:flex ml-6 gap-4 sm:space-x-7 items-center flex-grow" id="navbar">
         <!-- Home Link -->
         <a href="#" class="text-white opacity-70 hover:text-yellow-300 transition duration-300">
@@ -36,12 +40,14 @@
         <!-- Movies Dropdown -->
         <div class="relative group">
           <a href="#" class="text-white opacity-70 hover:text-yellow-300 transition duration-300 flex items-center">
+
             Movies
             <i class="fas fa-chevron-down ml-2 text-sm"></i>
           </a>
           <!-- Dropdown Menu -->
           <div class="absolute left-0 hidden group-hover:block bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-44 z-30">
             <ul class="py-2">
+
               <li>
                 <a href="#seriesSection" class="block px-4 py-2 text-gray-900 hover:bg-gray-100 hover:text-gray-900 transition duration-300">
                   Series
@@ -62,6 +68,7 @@
         </div>
   
         <!-- Contact Link -->
+
         <a href="#footer" class="text-white opacity-70 hover:text-yellow-300 transition duration-300">
           Contact
         </a>
@@ -174,6 +181,7 @@
           >
           <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-white opacity-85"></i>
         </form>
+
   
         <!-- Notification Icon -->
         <div class="relative">
@@ -247,9 +255,29 @@
       </ul>
     </div>
   </header>
-  
+
+  <!-- Search Section -->
+  <div id="search" class="Search w-full bg-white sticky top-0 z-20 py-1 shadow-md">
+    <div class="px-4">
+      <form id="searchForm" action="search.html" method="GET" class="relative">
+        <input
+          name="query"
+          id="searchInput"
+          class="w-full py-1 sm:py-2 pl-10 pr-4 rounded-xl text-gray-900 bg-white placeholder-gray-400 focus:outline-none text-lg sm:text-xl"
+          placeholder="Search for a movie, tv show, person..."
+          type="text"
+        >
+        <!-- Font Awesome Search Icon -->
+        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-900"></i>
+      </form>
+    </div>
+  </div>
+
   <!-- Catogries Section -->
- 
+  <div id="tags" class="flex flex-wrap gap-2 py-4 bg-gray-800 my-0.5">
+  </div>
+
+
   <!-- Posters Section -->
   <section class="relative w-full">
     <div class="posters bg-black bg-opacity-50 absolute inset-0 z-10"></div>
@@ -264,26 +292,31 @@
       <img src='../src/images/photo-1546872006-42c78c0ccb29.avif' alt='Movie Poster' class="w-1/4">
     </div>
   </section>
- 
+
 
   <!-- Movies Section -->
   <section class="Trending py-6 px-4" id="moviesSection">
     <div class="flex items-center justify-between flex-wrap">
+
       <h2 class="text-2xl sm:text-2xl font-bold text-white sm:mx-9" id="changingButton">Trending Movies</h2>
+
       <div class="flex space-x-4 mt-2 sm:mt-0 mx-4">
       </div>
     </div>
 
     <div class="relative mt-6">
 
+
       <div id="scrollContainer" class="main flex justify-start overflow-x-auto hover:cursor-pointer whitespace-nowrap space-x-4 px-4 pb-10 scrollbar-hide">
         <!-- Div For A Movie -->
       </div>
+
   </section>
 
   <!-- Series Section -->
 <section class="Series py-6 px-4" id="seriesSection">
     <div class="flex items-center justify-between flex-wrap">
+
       <h2 class="text-2xl sm:text-2xl font-bold text-white sm:mx-9">Popular Series</h2>
       <div class="flex space-x-4 mt-2 sm:mt-0 mx-4">
       </div>
@@ -293,26 +326,33 @@
       <div id="scrollContainerSeries" class="series-container flex justify-start overflow-x-auto whitespace-nowrap space-x-4 px-4 pb-10 scrollbar-hide hover:cursor-pointer">
         <!-- Series will be dynamically inserted here -->
       </div>
+
   </section>
 
   <!-- Actors Section -->
 <section id="Actors" class="Actors py-6 px-4" id="actorsSection">
     <div class="flex items-center justify-between flex-wrap">
+
       <h2 class="text-2xl sm:text-2xl font-bold text-white sm:mx-9">Popular Actors</h2>
+
       <div class="flex space-x-4 mt-2 sm:mt-0 mx-4">
 
       </div>
     </div>
   
     <div class="relative mt-6">
+
       <div id="scrollContainerActors" class="actors-container flex justify-start overflow-x-auto whitespace-nowrap space-x-4 px-4 pb-10 scrollbar-hide hover:cursor-pointer">
       </div>
   
+
     </div>
   </section>
 
   <!-- Footer Section -->
+
   <footer id="footer" class="bg-blacktext-bl py-8">
+
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         <!-- Quick Links -->
