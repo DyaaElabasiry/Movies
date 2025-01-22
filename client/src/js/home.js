@@ -6,62 +6,6 @@ mobileMenuButton.addEventListener('click', () => {
   mobileMenu.classList.toggle('hidden');
 });
 
-// Scrolling for Movies Section
-const scrollContainer = document.getElementById('scrollContainer');
-const scrollLeftButton = document.getElementById('scrollLeft');
-const scrollRightButton = document.getElementById('scrollRight');
-
-scrollLeftButton.addEventListener('click', () => {
-  scrollContainer.scrollBy({
-    left: -300,
-    behavior: 'smooth'
-  });
-});
-
-scrollRightButton.addEventListener('click', () => {
-  scrollContainer.scrollBy({
-    left: 300,
-    behavior: 'smooth'
-  });
-});
-
-// Scrolling for Series Section
-const scrollContainerSeries = document.getElementById('scrollContainerSeries');
-const scrollLeftSeries = document.getElementById('scrollLeftSeries');
-const scrollRightSeries = document.getElementById('scrollRightSeries');
-
-scrollLeftSeries.addEventListener('click', () => {
-  scrollContainerSeries.scrollBy({
-    left: -300,
-    behavior: 'smooth'
-  });
-});
-
-scrollRightSeries.addEventListener('click', () => {
-  scrollContainerSeries.scrollBy({
-    left: 300,
-    behavior: 'smooth'
-  });
-});
-
-// Scrolling for Actors Section
-const scrollContainerActors = document.getElementById('scrollContainerActors');
-const scrollLeftActors = document.getElementById('scrollLeftActors');
-const scrollRightActors = document.getElementById('scrollRightActors');
-
-scrollLeftActors.addEventListener('click', () => {
-  scrollContainerActors.scrollBy({
-    left: -300,
-    behavior: 'smooth'
-  });
-});
-
-scrollRightActors.addEventListener('click', () => {
-  scrollContainerActors.scrollBy({
-    left: 300,
-    behavior: 'smooth'
-  });
-});
 
 // API Configuration
 const Api_Key = 'bf6de15b7b7a3f0005e93bbde1715684';
@@ -179,8 +123,8 @@ function showCombinedResults(data) {
           <span class="text-sm font-bold text-yellow-400">${((item.vote_average || 0) * 10).toFixed(0)}%</span>
         </div>
       </div>
-      <h6 class="ml-3 text-base sm:text-lg text-gray-900 font-semibold mt-2">${isMovie ? item.title : item.name}</h6>
-      <p class="ml-3 text-sm sm:text-base text-gray-700">${isMovie ? item.release_date : item.first_air_date}</p>
+      <h6 class="ml-3 text-base sm:text-lg text-white font-semibold mt-2">${isMovie ? item.title : item.name}</h6>
+      <p class="ml-3 text-sm sm:text-base text-white opacity-70">${isMovie ? item.release_date : item.first_air_date}</p>
     `;
 
     // Append to the appropriate container
@@ -240,25 +184,44 @@ function showMovies(data) {
   moviesContainer.innerHTML = ''; // Clear the container
 
   data.forEach((movie) => {
-    const { title, poster_path, vote_average, release_date } = movie;
+    const { id,title, poster_path, vote_average, release_date } = movie;
     const movieElement = document.createElement('div');
     movieElement.classList.add('movie', 'mx-3', 'flex-shrink-0', 'relative', 'hover:brightness-110');
 
     // Use the fallback image if poster_path is not available
     const imageUrl = poster_path ? `${imges_Url}${poster_path}` : fallbackImage;
+    
+    const movieLink = document.createElement('a');
+    movieLink.href = `details.html?movieID=${id}`;
 
     movieElement.innerHTML = `
       <div class="relative">
-        <img class="w-40 sm:w-56 h-60 sm:h-80 object-cover rounded-2xl shadow-lg opacity-85 hover:opacity-100 " src="${imageUrl}" alt="${title}">
+          <img
+    class="w-40 sm:w-56 h-60 sm:h-80 object-cover rounded-2xl shadow-lg opacity-85 hover:opacity-100"
+    src="${imageUrl}"
+    alt="${name}"
+  />
+
+  <!-- Favorite Icon -->
+   <!-- Favorite Icon -->
+        <div
+          class="absolute top-2 right-2 bg-black bg-opacity-20 rounded-full p-2 flex items-center justify-center cursor-pointer"
+          onclick="toggleFavorite('${id}')"
+          id="favorite-icon-${id}" 
+        >
+          <i class="fas fa-heart text-white text-lg transition duration-300 hover:text-red-500" id="icon-${id}"></i>
+        </div>
+
         <div class="absolute bottom-2 left-2 bg-black bg-opacity-75 rounded-full p-2 flex items-center justify-center">
           <span class="text-sm font-bold text-yellow-400">${(vote_average * 10).toFixed(0)}%</span>
         </div>
       </div>
-      <h6 class="ml-3 text-base sm:text-lg text-gray-900 font-semibold mt-2">${title}</h6>
-      <p class="ml-3 text-sm sm:text-base text-gray-700">${release_date}</p>
+      <h6 class="ml-3 text-base sm:text-lg text-white font-semibold mt-2">${title}</h6>
+      <p class="ml-3 text-sm sm:text-base text-white opacity-70">${release_date}</p>
     `;
 
-    moviesContainer.appendChild(movieElement);
+    movieLink.appendChild(movieElement);
+    moviesContainer.appendChild(movieLink);
   });
 }
 
@@ -288,13 +251,26 @@ function showSeries(data) {
 
     seriesElement.innerHTML = `
       <div class="relative">
-        <img class="w-40 sm:w-56 h-60 sm:h-80 object-cover rounded-2xl shadow-lg opacity-85 hover:opacity-100" src="${imageUrl}" alt="${name}">
+          <img
+    class="w-40 sm:w-56 h-60 sm:h-80 object-cover rounded-2xl shadow-lg opacity-85 hover:opacity-100"
+    src="${imageUrl}"
+    alt="${name}"
+  />
+
+  <!-- Favorite Icon -->
+  <div
+    class="absolute top-2 right-2 bg-black bg-opacity-20 rounded-full p-2 flex items-center justify-center cursor-pointer"
+    onclick="toggleFavorite('${name}')"
+  >
+    <i class="fas fa-heart text-white text-lg transition duration-300 hover:text-red-500"></i>
+  </div>
+
         <div class="absolute bottom-2 left-2 bg-black bg-opacity-75 rounded-full p-2 flex items-center justify-center">
           <span class="text-sm font-bold text-yellow-400">${(vote_average * 10).toFixed(0)}%</span>
         </div>
       </div>
-      <h6 class="ml-3 text-base sm:text-lg text-gray-900 font-semibold mt-2">${name}</h6>
-      <p class="ml-3 text-sm sm:text-base text-gray-700">${first_air_date}</p>
+      <h6 class="ml-3 text-base sm:text-lg text-white font-semibold mt-2">${name}</h6>
+      <p class="ml-3 text-sm sm:text-base text-white opacity-70">${first_air_date}</p>
     `;
 
     seriesContainer.appendChild(seriesElement);
@@ -329,14 +305,29 @@ function showActors(data) {
     const imageUrl = profile_path ? `${imges_Url}${profile_path}` : fallbackImage;
 
     actorElement.innerHTML = `
-      <div class="relative">
-        <img class="w-40 sm:w-56 h-60 sm:h-80 object-cover rounded-2xl shadow-lg opacity-85 hover:opacity-100" src="${imageUrl}" alt="${name}">
-        <div class="absolute bottom-2 left-2 bg-black bg-opacity-75 rounded-full p-2 flex items-center justify-center">
-          <span class="text-sm font-bold text-yellow-400">${known_for_department}</span>
-        </div>
-      </div>
-      <h6 class="ml-3 text-base sm:text-lg text-gray-900 font-semibold mt-2">${name}</h6>
-    `;
+   <div class="relative">
+  <img
+    class="w-40 sm:w-56 h-60 sm:h-80 object-cover rounded-2xl shadow-lg opacity-85 hover:opacity-100"
+    src="${imageUrl}"
+    alt="${name}"
+  />
+
+  <!-- Favorite Icon -->
+  <div
+    class="absolute top-2 right-2 bg-black bg-opacity-20 rounded-full p-2 flex items-center justify-center cursor-pointer"
+    onclick="toggleFavorite('${name}')"
+  >
+    <i class="fas fa-heart text-white text-lg transition duration-300 hover:text-red-500"></i>
+  </div>
+
+  <!-- Known For Department -->
+  <div class="absolute bottom-2 left-2 bg-black bg-opacity-75 rounded-full p-2 flex items-center justify-center">
+    <span class="text-sm font-bold text-yellow-400">${known_for_department}</span>
+  </div>
+</div>
+<h6 class="ml-3 text-base sm:text-lg text-white font-semibold mt-2">${name}</h6>
+
+`;
     actorsContainer.appendChild(actorElement);
   });
 }
