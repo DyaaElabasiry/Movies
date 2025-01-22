@@ -4,6 +4,7 @@ var container = document.getElementById('poster-container')
 var addToFavourites = document.getElementById('add-to-favourites')
 var userId;
 var movieId;
+console.log('details.js loaded')
 window.onload = function() {
   userId = localStorage.getItem('userId');
   const params = new URLSearchParams(window.location.search);
