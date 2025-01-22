@@ -89,6 +89,7 @@ username.addEventListener("input", function () {
 
     sub_btn.addEventListener("click" , function(e){
         e.preventDefault()
+        par1.classList.add("hidden");
 
 
         xhr.open('GET', 'http://localhost:3000/users');
@@ -105,7 +106,13 @@ username.addEventListener("input", function () {
 
                     if(user.password != password.value){        // check if the password is wrong
                         par1.classList.remove("hidden");
+                                                                //the password is correct and email is correct
+                    }else{
                         
+
+                        localStorage.setItem("email" , user.email);
+                        localStorage.setItem("name" , user.name);
+
                     }
                 }
                 

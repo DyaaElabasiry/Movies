@@ -776,20 +776,8 @@ video {
   --tw-gradient-to: #1f2937 var(--tw-gradient-to-position);
 }
 
-.bg-\[length\:200\%_200\%\] {
-  background-size: 200% 200%;
-}
-
-.bg-\[length\:300\%_200\%\] {
-  background-size: 300% 200%;
-}
-
 .bg-\[length\:300\%_\] {
   background-size: 300%;
-}
-
-.bg-\[300\%_100\%\] {
-  background-position: 300% 100%;
 }
 
 .object-cover {
@@ -1039,10 +1027,6 @@ video {
     width: 50%;
   }
 
-  .md\:w-full {
-    width: 100%;
-  }
-
   .md\:w-2\/3 {
     width: 66.666667%;
   }
@@ -1053,14 +1037,6 @@ video {
 }
 
 @media (min-width: 1024px) {
-  .lg\:h-auto {
-    height: auto;
-  }
-
-  .lg\:w-2\/3 {
-    width: 66.666667%;
-  }
-
   .lg\:max-w-4xl {
     max-width: 56rem;
   }
