@@ -7,17 +7,17 @@
   <title>Cinema Website</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="text-gray-100 bg-white-300">
+<body class="text-gray-100 bg-gray-900">
   
   <!-- Header Section -->
-  <header class="bg-gray-800 sticky top-0 z-50 shadow-lg">
+  <header class="bg-gray-800 z-50 shadow-lg">
     <div class="container mx-auto px-4 py-4 flex items-center justify-between flex-wrap">
       <!-- Logo -->
       <h1 class="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-indigo-200 to-blue-500 text-transparent bg-clip-text ml-3">
         Cinema Hub
       </h1>
   
-      <!-- Mobile Menu Button  -->
+      <!-- Mobile Menu Button -->
       <button class="sm:hidden text-white focus:outline-none" id="mobileMenuButton">
         <i class="fas fa-bars text-2xl"></i>
       </button>
@@ -29,34 +29,62 @@
           Home
         </a>
   
-        <!-- Movies Dropdown -->
-        <div class="relative group">
-          <a href="#" class="text-white hover:text-yellow-300 font-bold transition duration-300 flex items-center">
-            Movies
-            <i class="fas fa-chevron-down ml-2 text-sm"></i>
-          </a>
-          <!-- Dropdown Menu -->
-          <div class="absolute left-0 hidden group-hover:block bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-44 z-30">
-            <ul class="py-2">
-    
-              <li>
-                <a href="#seriesSection" class="block px-4 py-2 text-gray-900 hover:bg-gray-100 hover:text-gray-900 transition duration-300">
-                  Series
-                </a>
-              </li>
-              <li>
-                <a href="#moviesSection" id="Movies" class="block px-4 py-2 text-gray-900 hover:bg-gray-100 hover:text-gray-900 transition duration-300">
-                  Movies
-                </a>
-              </li>
-              <li>
-                <a href="#Actors" id="People" class="block px-4 py-2 text-gray-900 hover:bg-gray-100 hover:text-gray-900 transition duration-300">
-                  People
-                </a>
-              </li>
-            </ul>
-          </div>
+      <!-- Movies Dropdown -->
+      <div class="relative group">
+        <a href="#" class="text-white hover:text-yellow-300 font-bold transition-all duration-700 ease-in-out flex items-center">
+          Movies
+          <i class="fas fa-chevron-down ml-2 text-sm transition-all duration-700 ease-in-out group-hover:rotate-180"></i>
+        </a>
+        <!-- Dropdown Menu -->
+        <div class="absolute left-0 mt-2 hidden group-hover:block bg-white border border-gray-100 rounded-lg shadow-sm w-48 z-30 transition-all duration-500 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0">
+          <ul class="py-2">
+            <li>
+              <a href="#seriesSection" class="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition duration-300">
+                Series
+              </a>
+            </li>
+            <li>
+              <a href="#moviesSection" class="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition duration-300">
+                Movies
+              </a>
+            </li>
+            <li>
+              <a href="#Actors" class="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition duration-300">
+                People
+              </a>
+            </li>
+          </ul>
         </div>
+      </div>
+
+      <!-- Category Dropdown -->
+      <div class="relative group">
+        <a href="#" class="text-white hover:text-yellow-300 font-bold transition duration-500 flex items-center">
+          Category
+          <i class="fas fa-chevron-down ml-2 text-sm transition-transform duration-500 group-hover:rotate-180"></i>
+        </a>
+        <!-- Dropdown Menu -->
+        <div class="absolute left-0 mt-2 hidden group-hover:block bg-white border border-gray-100 rounded-lg shadow-sm w-48 z-30 transition-all duration-500 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0">
+          <ul class="py-2" id="genreDropdown">
+            <!-- Genres will be dynamically inserted here -->
+            <li>
+              <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition duration-300">
+                Action
+              </a>
+            </li>
+            <li>
+              <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition duration-300">
+                Comedy
+              </a>
+            </li>
+            <li>
+              <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition duration-300">
+                Drama
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
   
         <!-- Contact Link -->
         <a href="#footer" class="text-white hover:text-yellow-300 font-bold transition duration-300">
@@ -78,10 +106,10 @@
         <div class="relative group">
           <button class="text-white hover:text-yellow-300 transition duration-300 flex items-center focus:outline-none">
             <img src="" alt="User Avatar" class="w-8 h-8 rounded-full">
-            <i class="fas fa-chevron-down ml-2 text-sm"></i>
+            <i class="fas fa-chevron-down ml-2 text-sm transition-transform duration-300 group-hover:rotate-180"></i>
           </button>
           <!-- Dropdown Menu -->
-          <div class="absolute right-0 hidden group-hover:block bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-44 z-30">
+          <div class="absolute right-0 mt-2 hidden group-hover:block bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-44 z-30 transition-opacity duration-300">
             <ul class="py-2">
               <li>
                 <a href="#" class="block px-4 py-2 text-gray-900 hover:bg-gray-100 hover:text-gray-900 transition duration-300">
@@ -153,8 +181,8 @@
     </div>
   </div>
 
-  <!-- Catogries Section -->
-  <div id="tags" class="flex flex-wrap gap-2 py-4 bg-gray-800 my-0.5">
+  <!-- Categories Section -->
+  <div class="flex flex-wrap gap-2 py-4 bg-gray-800 my-0.5">
   </div>
 
   <!-- Posters Section -->
@@ -164,18 +192,18 @@
       <h2 class="text-4xl font-bold">Welcome to Cinema Hub</h2>
       <p class="mt-2 text-lg">Discover the best movies and TV shows</p>
     </div>
-    <div class="flex items-center flex-wrap w-full">
-      <img src='../src/images/photo-1611787640592-ebf78080d96e.avif' alt='Movie Poster' class="w-1/4">
-      <img src='../src/images/premium_photo-1682146739433-5926577acb7a.avif' alt='Movie Poster' class="w-1/4">
-      <img src='../src/images/photo-1592685530128-2f32bf8fe0fb.avif' alt='Movie Poster' class="w-1/4">
-      <img src='../src/images/photo-1546872006-42c78c0ccb29.avif' alt='Movie Poster' class="w-1/4">
+    <div class="flex flex-wrap w-full">
+      <img src='../src/images/photo-1611787640592-ebf78080d96e.avif' alt='Movie Poster' class="w-full sm:w-1/2 md:w-1/4">
+      <img src='../src/images/premium_photo-1682146739433-5926577acb7a.avif' alt='Movie Poster' class="w-full sm:w-1/2 md:w-1/4">
+      <img src='../src/images/photo-1592685530128-2f32bf8fe0fb.avif' alt='Movie Poster' class="w-full sm:w-1/2 md:w-1/4">
+      <img src='../src/images/photo-1546872006-42c78c0ccb29.avif' alt='Movie Poster' class="w-full sm:w-1/2 md:w-1/4">
     </div>
   </section>
 
   <!-- Movies Section -->
   <section class="Trending py-6 px-4" id="moviesSection">
     <div class="flex items-center justify-between flex-wrap">
-      <h2 class="text-2xl sm:text-2xl font-bold text-gray-900 sm:mx-9" id="changingButton">Trending Movies</h2>
+      <h2 class="text-2xl sm:text-2xl font-bold text-white-900 sm:mx-9" id="changingButton">Trending Movies</h2>
       <div class="flex space-x-4 mt-2 sm:mt-0 mx-4">
       </div>
     </div>
@@ -202,11 +230,10 @@
   </section>
 
   <!-- Series Section -->
-<section class="Series py-6 px-4" id="seriesSection">
+  <section class="Series py-6 px-4" id="seriesSection">
     <div class="flex items-center justify-between flex-wrap">
-      <h2 class="text-2xl sm:text-2xl font-bold text-gray-900 sm:mx-9">Popular Series</h2>
+      <h2 class="text-2xl sm:text-2xl font-bold text-white-900 sm:mx-9">Popular Series</h2>
       <div class="flex space-x-4 mt-2 sm:mt-0 mx-4">
-
       </div>
     </div>
   
@@ -219,7 +246,7 @@
       </button>
   
       <div id="scrollContainerSeries" class="series-container flex justify-start overflow-x-auto whitespace-nowrap space-x-4 px-4 pb-10 scrollbar-hide hover:cursor-pointer">
-        <!-- Series will be dynamically inserted here -->
+        <!-- Series will be inserted here -->
       </div>
   
       <button
@@ -232,11 +259,10 @@
   </section>
 
   <!-- Actors Section -->
-<section id="Actors" class="Actors py-6 px-4" id="actorsSection">
+  <section id="Actors" class="Actors py-6 px-4" id="actorsSection">
     <div class="flex items-center justify-between flex-wrap">
-      <h2 class="text-2xl sm:text-2xl font-bold text-gray-900 sm:mx-9">Popular Actors</h2>
+      <h2 class="text-2xl sm:text-2xl font-bold text-white-900 sm:mx-9">Popular Actors</h2>
       <div class="flex space-x-4 mt-2 sm:mt-0 mx-4">
-
       </div>
     </div>
   
@@ -249,7 +275,7 @@
       </button>
   
       <div id="scrollContainerActors" class="actors-container flex justify-start overflow-x-auto whitespace-nowrap space-x-4 px-4 pb-10 scrollbar-hide hover:cursor-pointer">
-
+        <!-- Actors will inserted here -->
       </div>
   
       <button
@@ -262,10 +288,9 @@
   </section>
 
   <!-- Footer Section -->
-  <footer id="footer" class="bg-gray-800 text-bl py-8">
+  <footer id="footer" class="bg-gray-800 text-white py-8">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        <!-- Quick Links -->
         <div>
           <h3 class="text-lg font-bold mb-4">Quick Links</h3>
           <ul class="space-y-2">
@@ -314,6 +339,17 @@
       </div>
     </div>
   </footer>
+
+<!-- Video Overlay -->
+<div id="videoOverlay" class="fixed inset-0 z-50 hidden bg-black bg-opacity-90 flex items-center justify-center">
+
+  <button id="closeVideoButton"  class="absolute top-5 right-5 text-white text-4xl hover:text-red-600 transition-colors duration-300">&times;</button>
+
+  <!-- Video Container -->
+  <div id="videoContainer" class="w-full max-w-4xl p-4">
+
+  </div>
+</div>
 
   <script src="/client/src/js/home.js"></script>
 </body>
