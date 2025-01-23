@@ -1,7 +1,7 @@
 /* ./your-css-folder/styles.css */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 @layer utilities{
     #poster-container{
@@ -24,5 +24,32 @@
     #poster{
         box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.2);
     }
+    .box {
+        /* background-color: #2563eb; */
+        position: relative;
+        transition: transform 0.5s ease;
+    }
+    .box::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(32,33,37,0.5);
+        z-index: 3;
+        transition: background 0.5s ease;
+    }
+    .bigger {
+        transform: scale(1.3);
+        background: rgba(32,33,37,0);
+    }
+    .bigger::after{
+        background: rgba(32,33,37,0);
+    }
+    #posterImg{
+        z-index: 0;
+    }
+
     
 }

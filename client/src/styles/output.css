@@ -554,6 +554,48 @@ video {
   display: none;
 }
 
+.container {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
 .mx-10 {
   margin-left: 2.5rem;
   margin-right: 2.5rem;
@@ -569,9 +611,9 @@ video {
   margin-right: 1.5rem;
 }
 
-.my-10 {
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
+.my-14 {
+  margin-top: 3.5rem;
+  margin-bottom: 3.5rem;
 }
 
 .my-20 {
@@ -613,8 +655,12 @@ video {
   height: 3rem;
 }
 
-.h-3\/5 {
-  height: 60%;
+.h-\[70vh\] {
+  height: 70vh;
+}
+
+.h-\[80vh\] {
+  height: 80vh;
 }
 
 .h-full {
@@ -623,14 +669,6 @@ video {
 
 .h-screen {
   height: 100vh;
-}
-
-.h-\[\] {
-  height: ;
-}
-
-.h-\[70vh\] {
-  height: 70vh;
 }
 
 .max-h-full {
@@ -645,17 +683,16 @@ video {
   width: 3rem;
 }
 
+.w-32 {
+  width: 8rem;
+}
+
 .w-full {
   width: 100%;
 }
 
 .w-screen {
   width: 100vw;
-}
-
-.w-max {
-  width: -moz-max-content;
-  width: max-content;
 }
 
 .max-w-full {
@@ -678,6 +715,10 @@ video {
   align-items: flex-start;
 }
 
+.items-end {
+  align-items: flex-end;
+}
+
 .items-center {
   align-items: center;
 }
@@ -692,6 +733,10 @@ video {
 
 .rounded-full {
   border-radius: 9999px;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
 }
 
 .rounded-xl {
@@ -802,4 +847,35 @@ video {
 
 #poster{
   box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.2);
+}
+
+.box {
+  /* background-color: #2563eb; */
+  position: relative;
+  transition: transform 0.5s ease;
+}
+
+.box::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(32,33,37,0.5);
+  z-index: 3;
+  transition: background 0.5s ease;
+}
+
+.bigger {
+  transform: scale(1.3);
+  background: rgba(32,33,37,0);
+}
+
+.bigger::after{
+  background: rgba(32,33,37,0);
+}
+
+#posterImg{
+  z-index: 0;
 }
