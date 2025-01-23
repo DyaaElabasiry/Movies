@@ -12,7 +12,10 @@
       "name": "Bob",
       "email": "bob@example.com",
       "favourites": [
+        "120",
+        "124",
         "122"
+
       ]
     }
   ],
