@@ -201,7 +201,7 @@ search.addEventListener('input', () => {
     if (searchAction) {
       // Fetch both movies and series
       Promise.all([
-        fetch(`${search_Movie_Url}&query=${encodeURIComponent(searchAction)}`).then((res) => res.json()),
+        fetch(`${search_Movie_Url}&query= ${encodeURIComponent(searchAction)}`).then((res) => res.json()),
         fetch(`${search_Series_Url}&query=${encodeURIComponent(searchAction)}`).then((res) => res.json())
       ])
         .then(([moviesData, seriesData]) => {
