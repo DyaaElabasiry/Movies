@@ -7,38 +7,47 @@
   <title>Cinema Website</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="text-gray-100 bg-white-300">
+
+<body class="text-white bg-black">
   
   <!-- Header Section -->
-  <header class="bg-gray-800 sticky top-0 z-50 shadow-lg">
-    <div class="container mx-auto px-4 py-4 flex items-center justify-between flex-wrap">
+  <header class="bg-black sticky top-0 z-50 shadow-lg">
+    <div class="container mx-auto gap-4 px-2 py-2 flex items-center flex-wrap">
       <!-- Logo -->
-      <h1 class="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-indigo-200 to-blue-500 text-transparent bg-clip-text ml-3">
-        Cinema Hub
+      <h1 class="text-2xl sm:text-3xl font-medium bg-gradient-to-r from-indigo-300 to-blue-500 text-transparent bg-clip-text ml-3">
+        CinemaHub
       </h1>
   
-      <!-- Mobile Menu Button  -->
-      <button class="sm:hidden text-white focus:outline-none" id="mobileMenuButton">
+      <!-- Mobile Menu Button -->
+      <button class="sm:hidden text-white focus:outline-none ml-auto" id="mobileMenuButton">
+
+
         <i class="fas fa-bars text-2xl"></i>
       </button>
   
       <!-- Navigation -->
-      <nav class="hidden sm:flex items-center space-x-4 sm:space-x-7" id="navbar">
+
+      <nav class="hidden sm:flex ml-6 gap-4 sm:space-x-7 items-center flex-grow" id="navbar">
         <!-- Home Link -->
-        <a href="#" class="text-white hover:text-yellow-300 font-bold transition duration-300">
+        <a href="#" class="text-white opacity-70 hover:text-yellow-300 transition duration-300">
           Home
         </a>
+        <a href="#" class="text-white opacity-70 hover:text-yellow-300 transition duration-300">
+          Favourites
+        </a>
+  
   
         <!-- Movies Dropdown -->
         <div class="relative group">
-          <a href="#" class="text-white hover:text-yellow-300 font-bold transition duration-300 flex items-center">
+          <a href="#" class="text-white opacity-70 hover:text-yellow-300 transition duration-300 flex items-center">
+
             Movies
             <i class="fas fa-chevron-down ml-2 text-sm"></i>
           </a>
           <!-- Dropdown Menu -->
           <div class="absolute left-0 hidden group-hover:block bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-44 z-30">
             <ul class="py-2">
-    
+
               <li>
                 <a href="#seriesSection" class="block px-4 py-2 text-gray-900 hover:bg-gray-100 hover:text-gray-900 transition duration-300">
                   Series
@@ -59,9 +68,120 @@
         </div>
   
         <!-- Contact Link -->
-        <a href="#footer" class="text-white hover:text-yellow-300 font-bold transition duration-300">
+
+        <a href="#footer" class="text-white opacity-70 hover:text-yellow-300 transition duration-300">
           Contact
         </a>
+        <div class="relative group">
+          <a href="#" class="text-white opacity-70 hover:text-yellow-300 transition duration-300 flex items-center">
+            Genres
+            <i class="fas fa-chevron-down ml-2 text-sm"></i>
+          </a>
+          <!-- Dropdown Menu -->
+          <div class="absolute left-0 hidden group-hover:block bg-black divide-y divide-gray-100 rounded-lg shadow-lg w-60 z-30 max-h-64 overflow-y-auto overflow-x-hidden">
+            <ul class="grid grid-cols-2 gap-x-4 gap-y-2 py-3 px-4">
+              <li>
+                <a href="#seriesSection" class="block text-white opacity-70 hover:bg-gray-800 hover:text-yellow-300 transition duration-300 rounded px-2 py-1">
+                  Action
+                </a>
+              </li>
+              <li>
+                <a href="#moviesSection" class="block text-white opacity-70 hover:bg-gray-800 hover:text-yellow-300 transition duration-300 rounded px-2 py-1">
+                  Adventure
+                </a>
+              </li>
+              <li>
+                <a href="#Actors" class="block text-white opacity-70 hover:bg-gray-800 hover:text-yellow-300 transition duration-300 rounded px-2 py-1">
+                  Animation
+                </a>
+              </li>
+              <li>
+                <a href="#Actors" class="block text-white opacity-70 hover:bg-gray-800 hover:text-yellow-300 transition duration-300 rounded px-2 py-1">
+                  Comedy
+                </a>
+              </li>
+              <li>
+                <a href="#Actors" class="block text-white opacity-70 hover:bg-gray-800 hover:text-yellow-300 transition duration-300 rounded px-2 py-1">
+                  Crime
+                </a>
+              </li>
+              <li>
+                <a href="#Actors" class="block text-white opacity-70 hover:bg-gray-800 hover:text-yellow-300 transition duration-300 rounded px-2 py-1">
+                  Documentary
+                </a>
+              </li>
+              <li>
+                <a href="#Actors" class="block text-white opacity-70 hover:bg-gray-800 hover:text-yellow-300 transition duration-300 rounded px-2 py-1">
+                  Family
+                </a>
+              </li>
+              <li>
+                <a href="#Actors" class="block text-white opacity-70 hover:bg-gray-800 hover:text-yellow-300 transition duration-300 rounded px-2 py-1">
+                  Fantasy
+                </a>
+              </li>
+              <li>
+                <a href="#Actors" class="block text-white opacity-70 hover:bg-gray-800 hover:text-yellow-300 transition duration-300 rounded px-2 py-1">
+                  History
+                </a>
+              </li>
+              <li>
+                <a href="#Actors" class="block text-white opacity-70 hover:bg-gray-800 hover:text-yellow-300 transition duration-300 rounded px-2 py-1">
+                  Horror
+                </a>
+              </li>
+              <li>
+                <a href="#Actors" class="block text-white opacity-70 hover:bg-gray-800 hover:text-yellow-300 transition duration-300 rounded px-2 py-1">
+                  Music
+                </a>
+              </li>
+              <li>
+                <a href="#Actors" class="block text-white opacity-70 hover:bg-gray-800 hover:text-yellow-300 transition duration-300 rounded px-2 py-1">
+                  Mystery
+                </a>
+              </li>
+              <li>
+                <a href="#Actors" class="block text-white opacity-70 hover:bg-gray-800 hover:text-yellow-300 transition duration-300 rounded px-2 py-1">
+                  Science Fiction
+                </a>
+              </li>
+              <li>
+                <a href="#Actors" class="block text-white opacity-70 hover:bg-gray-800 hover:text-yellow-300 transition duration-300 rounded px-2 py-1">
+                  TV Movie
+                </a>
+              </li>
+              <li>
+                <a href="#Actors" class="block text-white opacity-70 hover:bg-gray-800 hover:text-yellow-300 transition duration-300 rounded px-2 py-1">
+                  Thriller
+                </a>
+              </li>
+              <li>
+                <a href="#Actors" class="block text-white opacity-70 hover:bg-gray-800 hover:text-yellow-300 transition duration-300 rounded px-2 py-1">
+                  War
+                </a>
+              </li>
+              <li>
+                <a href="#Actors" class="block text-white opacity-70 hover:bg-gray-800 hover:text-yellow-300 transition duration-300 rounded px-2 py-1">
+                  Western
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+
+        <!-- Search Bar -->
+        <form id="searchForm" action="search.html" method="GET" class="relative flex-grow max-w-lg mx-4">
+          <input
+            name="query"
+            id="searchInput"
+            class="w-full py-1 sm:py-2 pl-10 pr-4 rounded-xl text-gray-900 bg-gray-900 opacity-35 placeholder-gray-300 focus:outline-none text-sm sm:text-base"
+            placeholder="Search for a movie, TV show, person..."
+            type="text"
+          >
+          <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-white opacity-85"></i>
+        </form>
+
   
         <!-- Notification Icon -->
         <div class="relative">
@@ -157,6 +277,7 @@
   <div id="tags" class="flex flex-wrap gap-2 py-4 bg-gray-800 my-0.5">
   </div>
 
+
   <!-- Posters Section -->
   <section class="relative w-full">
     <div class="posters bg-black bg-opacity-50 absolute inset-0 z-10"></div>
@@ -172,97 +293,66 @@
     </div>
   </section>
 
+
   <!-- Movies Section -->
   <section class="Trending py-6 px-4" id="moviesSection">
     <div class="flex items-center justify-between flex-wrap">
-      <h2 class="text-2xl sm:text-2xl font-bold text-gray-900 sm:mx-9" id="changingButton">Trending Movies</h2>
+
+      <h2 class="text-2xl sm:text-2xl font-bold text-white sm:mx-9" id="changingButton">Trending Movies</h2>
+
       <div class="flex space-x-4 mt-2 sm:mt-0 mx-4">
       </div>
     </div>
 
     <div class="relative mt-6">
-      <button
-        id="scrollLeft"
-        class="absolute -left-0 top-44 transform -translate-y-6 bg-gradient-to-r from-blue-700 to-blue-500 text-white px-3 py-2 sm:px-4 sm:py-3 rounded-full shadow-lg hover:scale-105 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300 z-10"
-        aria-label="Scroll Left">
-        &#8592;
-      </button>
-    
+
+
       <div id="scrollContainer" class="main flex justify-start overflow-x-auto hover:cursor-pointer whitespace-nowrap space-x-4 px-4 pb-10 scrollbar-hide">
         <!-- Div For A Movie -->
       </div>
-    
-      <button
-        id="scrollRight"
-        class="mb-36 absolute -right-4 top-44 transform -translate-y-1/2 bg-gradient-to-l from-blue-700 to-blue-500 text-white px-3 py-2 sm:px-4 sm:py-3 rounded-full shadow-lg hover:scale-105 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300 z-10"
-        aria-label="Scroll Right">
-        &#8594;
-      </button>
-    </div>
+
   </section>
 
   <!-- Series Section -->
 <section class="Series py-6 px-4" id="seriesSection">
     <div class="flex items-center justify-between flex-wrap">
-      <h2 class="text-2xl sm:text-2xl font-bold text-gray-900 sm:mx-9">Popular Series</h2>
-      <div class="flex space-x-4 mt-2 sm:mt-0 mx-4">
 
+      <h2 class="text-2xl sm:text-2xl font-bold text-white sm:mx-9">Popular Series</h2>
+      <div class="flex space-x-4 mt-2 sm:mt-0 mx-4">
       </div>
     </div>
-  
     <div class="relative mt-6">
-      <button
-        id="scrollLeftSeries"
-        class="absolute -left-0 top-44 transform -translate-y-6 bg-gradient-to-r from-blue-700 to-blue-500 text-white px-3 py-2 sm:px-4 sm:py-3 rounded-full shadow-lg hover:scale-105 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300 z-10"
-        aria-label="Scroll Left">
-        &#8592;
-      </button>
-  
+     
       <div id="scrollContainerSeries" class="series-container flex justify-start overflow-x-auto whitespace-nowrap space-x-4 px-4 pb-10 scrollbar-hide hover:cursor-pointer">
         <!-- Series will be dynamically inserted here -->
       </div>
-  
-      <button
-        id="scrollRightSeries"
-        class="mb-36 absolute -right-4 top-44 transform -translate-y-1/2 bg-gradient-to-l from-blue-700 to-blue-500 text-white px-3 py-2 sm:px-4 sm:py-3 rounded-full shadow-lg hover:scale-105 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300 z-10"
-        aria-label="Scroll Right">
-        &#8594;
-      </button>
-    </div>
+
   </section>
 
   <!-- Actors Section -->
 <section id="Actors" class="Actors py-6 px-4" id="actorsSection">
     <div class="flex items-center justify-between flex-wrap">
-      <h2 class="text-2xl sm:text-2xl font-bold text-gray-900 sm:mx-9">Popular Actors</h2>
+
+      <h2 class="text-2xl sm:text-2xl font-bold text-white sm:mx-9">Popular Actors</h2>
+
       <div class="flex space-x-4 mt-2 sm:mt-0 mx-4">
 
       </div>
     </div>
   
     <div class="relative mt-6">
-      <button
-        id="scrollLeftActors"
-        class="absolute -left-0 top-44 transform -translate-y-6 bg-gradient-to-r from-blue-700 to-blue-500 text-white px-3 py-2 sm:px-4 sm:py-3 rounded-full shadow-lg hover:scale-105 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300 z-10"
-        aria-label="Scroll Left">
-        &#8592;
-      </button>
-  
-      <div id="scrollContainerActors" class="actors-container flex justify-start overflow-x-auto whitespace-nowrap space-x-4 px-4 pb-10 scrollbar-hide hover:cursor-pointer">
 
+      <div id="scrollContainerActors" class="actors-container flex justify-start overflow-x-auto whitespace-nowrap space-x-4 px-4 pb-10 scrollbar-hide hover:cursor-pointer">
       </div>
   
-      <button
-        id="scrollRightActors"
-        class="mb-36 absolute -right-4 top-44 transform -translate-y-1/2 bg-gradient-to-l from-blue-700 to-blue-500 text-white px-3 py-2 sm:px-4 sm:py-3 rounded-full shadow-lg hover:scale-105 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300 z-10"
-        aria-label="Scroll Right">
-        &#8594;
-      </button>
+
     </div>
   </section>
 
   <!-- Footer Section -->
-  <footer id="footer" class="bg-gray-800 text-bl py-8">
+
+  <footer id="footer" class="bg-blacktext-bl py-8">
+
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         <!-- Quick Links -->

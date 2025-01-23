@@ -11,9 +11,18 @@
       "name": "Bob",
       "email": "bob@example.com",
       "favourites": [
-        "121",
-        "122"
+        "120",
+        "124",
+        "122",
+        "939243"
       ]
+    },
+    {
+      "id": "2a2b",
+      "name": "Dyaa Elabasiry",
+      "password": "D%123456",
+      "email": "dyaa@gmail.com",
+      "favourites": []
     }
   ],
   "posts": [
