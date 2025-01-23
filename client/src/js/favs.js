@@ -38,13 +38,16 @@ function fetchMovieDetails(movieId) {
 // Render a movie card
 function showMovieCard(movie) {
   const movieCard = `
-    <div id="movie-${movie.id
-    }" class="mx-3 flex-shrink-0 relative hover:brightness-110">
-      <i id="deleteIcon-${movie.id
-    }" class="material-icons bg-gradient-to-r from-white to-blue-500 text-transparent bg-clip-text absolute top-7 right-3 lg:top-8 lg:right-10 cursor-pointer">delete</i>
+    <div id="movie-${
+      movie.id
+    }" class=" movie-card mx-3 flex-shrink-0 relative hover:brightness-110  animate-[fadeIn] transition duration-500 ease-in-out transform hover:scale-105 cursor-pointer">
+      <i id="deleteIcon-${
+        movie.id
+      }" class="material-icons bg-gradient-to-r from-white to-blue-500 text-transparent bg-clip-text absolute top-7 right-3 lg:top-8 lg:right-10 cursor-pointer">delete</i>
             <img
-        id="poster_image-${movie.id
-    }" class="w-40 sm:w-56 h-auto my-4 rounded-2xl shadow-lg mx-auto"
+        id="poster_image-${
+          movie.id
+        }" class="w-40 sm:w-56 h-auto my-4 rounded-2xl shadow-lg mx-auto"
         src="https://image.tmdb.org/t/p/original${movie.poster_path}"
         alt="${movie.title}"
       />
