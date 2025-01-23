@@ -23,6 +23,13 @@
       "password": "D%123456",
       "email": "dyaa@gmail.com",
       "favourites": []
+    },
+    {
+      "id": "23bb",
+      "name": "shaban hassan",
+      "password": "shaban10@",
+      "email": "shabanhassan10@gmail.com",
+      "favourites": []
     }
   ],
   "posts": [
