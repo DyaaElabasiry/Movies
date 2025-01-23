@@ -198,7 +198,7 @@ function showMovies(data) {
 
     
     const movieLink = document.createElement('a');
-    movieLink.href = `details.html?movieID=${id}`;
+    movieLink.href = `details.html?movieId=${id}`;
 
     movieElement.innerHTML = `
       <div class="relative">
