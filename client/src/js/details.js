@@ -4,9 +4,13 @@ var container = document.getElementById('poster-container');
 var addToFavourites = document.getElementById('add-to-favourites');
 var userId;
 var movieId;
-console.log('details.js loaded')
-window.onload = function () {
+
+var isAddedToFavourites = false;
+
+window.onload = function() {
+
   userId = localStorage.getItem('userId');
+  email = localStorage.getItem('email');
   const params = new URLSearchParams(window.location.search);
 
   // Added logic to redirect for datails page
@@ -17,18 +21,10 @@ window.onload = function () {
     return;
   }
 
-  var checkMovieRequest = new XMLHttpRequest();
-  checkMovieRequest.open('GET', `http://localhost:3000/users/${userId}`, true);
-  checkMovieRequest.setRequestHeader('Content-Type', 'application/json');
-  checkMovieRequest.onload = function () {
-    if (checkMovieRequest.status === 200) {
-      var user = JSON.parse(checkMovieRequest.responseText);
-      if (user.favourites.includes(movieId)) {
-        addToFavourites.style.color = 'red';
-      }
-    }
-  };
-  checkMovieRequest.send();
+
+  
+  checkIfMovieIsFavourite();
+
 
   xhr.open('GET', `https://api.themoviedb.org/3/${type}/${movieId}?api_key=d10b21c479b4bc082f3fab5d7cc62326`, true);
   xhr.send();
@@ -47,8 +43,27 @@ window.onload = function () {
       document.getElementById('overview').innerText = response.overview;
       document.getElementById('user-score').innerText = Math.floor(response.vote_average * 10) + '%';
     }
-  });
-};
+
+  })
+
+}
+
+function checkIfMovieIsFavourite(){
+  var checkMovieRequest = new XMLHttpRequest();
+  checkMovieRequest.open('GET', `http://localhost:3000/users/${userId}`,true);
+  checkMovieRequest.setRequestHeader('Content-Type', 'application/json');
+  checkMovieRequest.onload = function(){
+    if(checkMovieRequest.status === 200){
+      var user = JSON.parse(checkMovieRequest.responseText);
+      if(user.favourites.includes(movieId)){
+        addToFavourites.style.color = 'red';
+        isAddedToFavourites = true;
+      }
+    }
+  }
+  checkMovieRequest.send();
+}
+
 
 function addSpecs(response) {
   var specs = document.getElementById('specs');
@@ -77,11 +92,22 @@ function addFavs() {
   xhr.onload = function () {
     if (xhr.status === 200) {
       var user = JSON.parse(xhr.responseText);
-      user.favourites.push(movieId);
+      if(isAddedToFavourites){
+          var index = user.favourites.indexOf(movieId);
+          user.favourites.splice(index,1);
+      }else{
+          user.favourites.push(movieId);
+      }
       var xhr2 = new XMLHttpRequest();
       xhr2.open('PUT', `http://localhost:3000/users/${userId}`, true);
       xhr2.setRequestHeader('Content-Type', 'application/json');
       xhr2.send(JSON.stringify(user));
     }
-  };
+
+  }
+  
+  
 }
+
+
+

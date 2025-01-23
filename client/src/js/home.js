@@ -6,6 +6,7 @@ mobileMenuButton.addEventListener('click', () => {
   mobileMenu.classList.toggle('hidden');
 });
 
+
 // Generic Scroll Function
 function setupScroll(containerId, leftButtonId, rightButtonId, scrollAmount = 300) {
   const container = document.getElementById(containerId);
@@ -25,6 +26,7 @@ function setupScroll(containerId, leftButtonId, rightButtonId, scrollAmount = 30
 setupScroll('scrollContainer', 'scrollLeft', 'scrollRight');
 setupScroll('scrollContainerSeries', 'scrollLeftSeries', 'scrollRightSeries');
 setupScroll('scrollContainerActors', 'scrollLeftActors', 'scrollRightActors');
+
 
 // API Configuration
 const Api_Key = 'bf6de15b7b7a3f0005e93bbde1715684';
@@ -159,6 +161,7 @@ function redirectToDetails(type, id) {
   window.location.href = detailsUrl;   // hna ana har7 3la el-details page
 }
 
+
 // Function to fetch trailer
 function fetchTrailer(type, id) {
   fetch(`${base_Url}/${type}/${id}/videos?api_key=${Api_Key}`)
@@ -177,6 +180,7 @@ function fetchTrailer(type, id) {
       }
     })
 }
+
 
 // Video Overlay Functions
 function openVideoOverlay(videoUrl) {
@@ -275,9 +279,11 @@ function showMovies(data) {
   moviesContainer.innerHTML = '';
 
   data.forEach((movie) => {
+
     const movieElement = document.createElement('div');
     movieElement.innerHTML = createMovieCard(movie);
     moviesContainer.appendChild(movieElement);
+
   });
 }
 
@@ -288,7 +294,9 @@ function showSeries(data) {
 
   data.forEach((series) => {
     const seriesElement = document.createElement('div');
+
     seriesElement.innerHTML = createSeriesCard(series);
+
     seriesContainer.appendChild(seriesElement);
   });
 }
@@ -329,6 +337,7 @@ function showActors(data) {
     const imageUrl = profile_path ? `${imges_Url}${profile_path}` : fallbackImage;
 
     actorElement.innerHTML = `
+
       <div class="relative">
         <img class="w-40 sm:w-56 h-60 sm:h-80 object-cover rounded-2xl shadow-lg opacity-85 hover:opacity-100" src="${imageUrl}" alt="${name}" onerror="this.src='${fallbackImage}'">
         <div class="absolute bottom-2 left-2 bg-black bg-opacity-75 rounded-full p-2 flex items-center justify-center">
@@ -337,6 +346,7 @@ function showActors(data) {
       </div>
       <h6 class="ml-3 text-base sm:text-lg text-white font-semibold mt-2">${name}</h6>
     `;
+
     actorsContainer.appendChild(actorElement);
   });
 }
