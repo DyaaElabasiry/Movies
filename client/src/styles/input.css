@@ -24,12 +24,48 @@
     #poster{
         box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.2);
     }
+
+    /****************************/
+    
+    #hero-container{
+        overflow: hidden;
+    }
+    #hero-container::after{
+        content: "";
+        position: absolute;
+        bottom:  0;
+        left: 0;
+        width: 100%;
+        height: 45%;
+        background: linear-gradient(to top, rgba(32,33,37,1), rgba(32,33,37,0));
+        z-index: 0;
+    }
     .box {
         /* background-color: #2563eb; */
         position: relative;
         transition: transform 0.5s ease;
+        z-index: 2;
     }
-    .box::after{
+    .dimmer{
+        position: relative;
+    }
+    .dimmer::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: rgba(32,33,37,0.5);
+        z-index: 3;
+        transition: background 0.5s ease;
+        border-radius: inherit;
+    }
+    .brighter::after{
+        background: rgba(32,33,37,0);
+    }
+    /* .box::after{
         content: "";
         position: absolute;
         top: 0;
@@ -39,17 +75,43 @@
         background: rgba(32,33,37,0.5);
         z-index: 3;
         transition: background 0.5s ease;
-    }
+    } */
     .bigger {
         transform: scale(1.3);
-        background: rgba(32,33,37,0);
     }
-    .bigger::after{
-        background: rgba(32,33,37,0);
-    }
+    
     #posterImg{
         z-index: 0;
     }
+    #posterImg::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 70%;
+        height: 100%;
+        background: linear-gradient(to right, rgba(32,33,37,1), rgba(32,33,37,0));
+        z-index: 1;
+    }
+    .text-two-lines {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 2.4em; 
+        line-height: 1.2em; 
+    } 
+    .hidden{
+        opacity: 0;
+        transition: opacity 1s ease;
+    }
+    .background-poster{
+        opacity: 1;
+        transition: opacity 1s ease;
+    }
+       
+    
 
     
 }
