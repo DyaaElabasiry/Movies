@@ -111,6 +111,7 @@ username.addEventListener("input", function () {
                         localStorage.setItem("userId" , user.id);
                         localStorage.setItem("email" , user.email);
                         localStorage.setItem("name" , user.name);
+                        window.location.href = "http://127.0.0.1:5500/Client/public/home.html";
 
                     }
                 }

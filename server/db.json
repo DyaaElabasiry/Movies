@@ -1,7 +1,6 @@
 {
   "users": [
     {
-
       "id": "919e",
       "name": "Alice",
       "email": "alice@example.com",
@@ -11,9 +10,21 @@
       "id": "d80f",
       "name": "Bob",
       "email": "bob@example.com",
-      "favourites": [
-        "122"
-      ]
+      "favourites": ["120", "122", "93405", "507241", "549509"]
+    },
+    {
+      "id": "2a2b",
+      "name": "Dyaa Elabasiry",
+      "password": "D%123456",
+      "email": "dyaa@gmail.com",
+      "favourites": []
+    },
+    {
+      "id": "23bb",
+      "name": "shaban hassan",
+      "password": "shaban10@",
+      "email": "shabanhassan10@gmail.com",
+      "favourites": []
     }
   ],
   "posts": [
