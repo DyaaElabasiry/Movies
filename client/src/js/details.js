@@ -5,6 +5,7 @@ var addToFavourites = document.getElementById('add-to-favourites')
 var userId;
 var movieId;
 var isAddedToFavourites = false;
+
 window.onload = function() {
   userId = localStorage.getItem('userId');
   email = localStorage.getItem('email');
