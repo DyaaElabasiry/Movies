@@ -10,14 +10,23 @@
       "id": "d80f",
       "name": "Bob",
       "email": "bob@example.com",
-      "favourites": ["120", "122", "93405", "507241", "549509"]
+      "favourites": [
+        "120",
+        "122",
+        "93405",
+        "507241",
+        "549509"
+      ]
     },
     {
       "id": "2a2b",
       "name": "Dyaa Elabasiry",
       "password": "D%123456",
       "email": "dyaa@gmail.com",
-      "favourites": []
+      "favourites": [
+        "939243",
+        "1114894"
+      ]
     },
     {
       "id": "23bb",

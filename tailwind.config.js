@@ -46,5 +46,20 @@ module.exports = {
     },
   },
   plugins: [],
+  safelist:[
+    'animate-background-fade-in', 
+    'bigger', 
+    'rounded-lg', 
+    'dimmer', 
+    'brighter', 
+    'text-two-lines' ,
+    'text-center', 
+    'hidden', 
+    'opacity-1', 
+    'w-32', 
+    'mx-10' , 
+    'my-14', 
+    'box' 
+  ]
 };
 
