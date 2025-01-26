@@ -1,4 +1,3 @@
-const HeroContainer = document.getElementById('hero-container');
 
 const genreList = [
   { id: 28, name: "Action" },
@@ -21,6 +20,9 @@ const genreList = [
   { id: 10752, name: "War" },
   { id: 37, name: "Western" },
 ];
+
+
+const HeroContainer = document.getElementById('hero-container');
 function getGenreNameById(id) {
   const genre = genreList.find((genre) => genre.id === id);
   return genre ? genre.name : "Genre not found";
